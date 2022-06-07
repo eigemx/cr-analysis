@@ -40,15 +40,19 @@ Avg. rate of trophy increase = 20.31 trophies/day
 We assume that each battle outcome is independent and identically distributed (I believe that this is not a valid assumption, but we will test how plausible this assumption), we also assume a uniform distribution of the win rate, and we try to infer the win rate posterior distribution under the assumption of a Bernoulli likelihood.
 
 Prior:
+
 $$ p(\alpha) \sim \text{Uniform}(0,1) $$
 
 Likelihood:
+
 $$ p(\text{win}|\alpha) \sim \text{Bernoulli}(\alpha)$$
 
 Win rate trace plot:
+
 ![Win Rate Trace](https://raw.githubusercontent.com/eigenemara/cr-analysis/main/images/trace_win.png?raw=true)
 
 Posterior distribution of win rate:
+
 ![Win Rate Posterior](https://raw.githubusercontent.com/eigenemara/cr-analysis/main/images/posterior_win_pct.png?raw=true)
 
 
@@ -57,12 +61,18 @@ Posterior distribution of win rate:
 How much trophies do we expect to win/lose after each battle? to answer this we model the observed trophy change (27, 29, 29, 30, .., 33) as a Catenary distribution with a Drichlet prior, for both the positive and negative change.
 
 Prior:
-$$ p_+ \sim \text{Dirichlet}([1, \dots, 1]) $$
-$$ p_- \sim \text{Dirichlet}([1, \dots, 1]) $$
+
+$$ p_+ \sim \text{Dirichlet} ([1, \dots, 1]) $$
+
+$$ p_- \sim \text{Dirichlet} ([1, \dots, 1]) $$
+
 
 Likelihood:
-$$ \text{Trophy}_+ \sim \text{Categorical}(p_+) $$
-$$ \text{Trophy}_- \sim \text{Categorical}(p_-) $$
+
+$$\text{Trophy}_+ \sim \text{Categorical} (p_+) $$
+
+$$\text{Trophy}_- \sim \text{Categorical} (p_-) $$
+
 
 Trace plots for $\text{Trophy}_+$ and $\text{Trophy}_-$:
 
