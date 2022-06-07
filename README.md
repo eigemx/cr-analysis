@@ -61,20 +61,15 @@ Posterior distribution of win rate:
 How much trophies do we expect to win/lose after each battle? to answer this we model the observed trophy change (27, 29, 29, 30, .., 33) as a Catenary distribution with a Drichlet prior, for both the positive and negative change.
 
 Prior:
-
-$$ p_+ \sim \text{Dirichlet} ([1, \dots, 1]) $$
-
-$$ p_- \sim \text{Dirichlet} ([1, \dots, 1]) $$
-
+$$p_+ \sim \text{Dirichlet}([1, \dots, 1])$$
+$$p_- \sim \text{Dirichlet}([1, \dots, 1])$$
 
 Likelihood:
-
-$$\text{Trophy}_+ \sim \text{Categorical} (p_+) $$
-
-$$\text{Trophy}_- \sim \text{Categorical} (p_-) $$
+$$T_+ \sim \text{Categorical} (p_+)$$
+$$T_- \sim \text{Categorical} (p_-)$$
 
 
-Trace plots for $\text{Trophy}_+$ and $\text{Trophy}_-$:
+Trace plots for $p_+$ and $p_-$:
 
 ![Positive Trophy Change Trace](https://raw.githubusercontent.com/eigenemara/cr-analysis/main/images/trace_tropy_pos.png?raw=true)
 
