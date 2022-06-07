@@ -12,7 +12,7 @@ This is a data analysis for my Clash Royale Season 35 battles, as a log bait pla
 - Build a Bayesian model to infer distributions for: win rate, positive trophy change and negative trophy change.
 - Simulate random walk battles to compare actual progression vs. the simulated battles.
 - Test a particular observed lose streak and calculate the probability of its occurence by simulating a random battle walks.
-- Build a simple Bayesian linear regression model to predice the season ending trophies.
+- Build a simple Bayesian linear regression model to predict the season ending trophies.
 
 # Part I: Exploratory Data Analysis
 In `data.csv` we have 474 battles, with the following summary statistics:
