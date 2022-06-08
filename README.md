@@ -1,4 +1,4 @@
-# Clash Royale Season 35 Analysis
+# Clash Royale Season 35 Analysis (unfinished)
 
 This is a data analysis for my Clash Royale Season 35 battles, as a log bait player (except for one X-Bow battle by mistake). The goals of the current analysis are:
 
