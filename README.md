@@ -1,4 +1,4 @@
-# Clash Royale Season 35 Analysis (unfinished)
+# Clash Royale Season 35 Analysis
 
 This is a data analysis for my Clash Royale Season 35 battles, as a log bait player (except for one X-Bow battle by mistake). The goals of the current analysis are:
 
@@ -12,7 +12,7 @@ This is a data analysis for my Clash Royale Season 35 battles, as a log bait pla
 - Build a Bayesian model to infer distributions for: win rate, positive trophy change and negative trophy change.
 - Simulate random walk battles to compare actual progression vs. the simulated battles.
 - Test a particular observed lose streak and calculate the probability of its occurence by simulating a random battle walks.
-- Build a simple Bayesian linear regression model to predict the season ending trophies.
+- Build a Bayesian linear regression model to predict the season ending trophies.
 
 # Part I: Exploratory Data Analysis
 Data have been collected on a daily basis using `miner.py`, and in `data.csv` we have 474 battles, with the following summary statistics:
@@ -26,10 +26,10 @@ Active playing days = 32 days
 Avg. rate of trophy increase = 20.31 trophies/day
 ``` 
 
-Let's plot the battles win/defeat (coupled with trophy gain/loss):
+Let's visualize battles outcome (win/defeat), coupled with trophy gain/loss:
 ![Battle Results Bar Chart](https://raw.githubusercontent.com/eigenemara/cr-analysis/main/images/battle_results_bar.png?raw=true)
 
-Progression of trophies since season start until the last battle:
+And progression of trophies since season start until the final battle:
 ![Battle Results Time Series](https://raw.githubusercontent.com/eigenemara/cr-analysis/main/images/battle_results_time_series.png?raw=true)
 
 How often did win/defeat streaks occur?
@@ -45,7 +45,7 @@ Note: this does not sum to 100% because one opponent can have a mix of most comm
 # Part II - Bayesian Inference and Simulation
 ## Win Rate Distribution
 
-We don't treat the win rate as just the observed fixed value, but as a random variable. We assume that our data  $\mathcal{D} = \\{ 1, 0, 1, 1, 0 ,\dots \\} $ (each battle outcome) is independent and identically distributed ($\text{i.i.d.}$) (I believe that this is not a valid assumption, but we will test how plausible this assumption is), we also assume a prior uniform distribution of the win rate, and we try to infer the win rate posterior distribution under the assumption of a Bernoulli likelihood.
+We don't treat the win rate as just the observed fixed value, but as a random variable. We assume that our data  $\mathcal{D} = \\{ 1, 0, 1, 1, 0 ,\dots \\}$ (each battle outcome) is independent and identically distributed ( $\text{i.i.d.}$ ) (I believe that this is not a valid assumption, but we will test how plausible this assumption is), we also assume a prior uniform distribution of the win rate, and we try to infer the win rate posterior distribution under the assumption of a Bernoulli likelihood.
 
 Prior:
 
@@ -90,7 +90,7 @@ Trace plots for $p_+$ and $p_-$:
 Distribution plot of positive and negative trophy change (at posterior mean values):
 ![Trophy change Posterior](https://raw.githubusercontent.com/eigenemara/cr-analysis/main/images/trophy_change_dist.png?raw=true)
 
-One can conclude that for me the game was on average more rewarding than it was punishing. I was able to win more trophies than I lost, mode of positive trophy change is 30 while for negative trophy change it's 27, so despite the low win rate, the game on average is rewarding.
+**One can conclude that for me the game was on average more rewarding than it was punishing. I was able to win more trophies than I lost**, mode of positive trophy change is 30 while for negative trophy change it's 27, so despite the low win rate, the game on average is rewarding.
 
 ## How valid is the assumption that battle outcomes are independent?
 I don't think each battle outcome is independent, but if we proceeded anyway to assume that, and given the data we have, is this a valid assumption?
@@ -113,6 +113,8 @@ Yet, we found no significant difference from the mean:
 
 ## Predict season ending trophy, based on half season battles
 
+TODO: Add model formulation, results and summary
+
 Linear regression model parameters trace plot:
 ![Linear Regression Model Trace](https://raw.githubusercontent.com/eigenemara/cr-analysis/main/images/linear_regression.png?raw=true)
 
@@ -122,6 +124,9 @@ Linear regression model parameters trace plot:
 
 
 ## Testing the probability of a particular observed losing streak
+
+TODO: Explain the need for this and add model forumlation, results and summary.
+
 ![Lose Streak](https://raw.githubusercontent.com/eigenemara/cr-analysis/main/images/lose_streak.png?raw=true)
 
 ![Lose Streak vs random walk](https://raw.githubusercontent.com/eigenemara/cr-analysis/main/images/lose_streak_random-walk.png?raw=true)
