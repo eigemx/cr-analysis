@@ -108,6 +108,9 @@ Yet, we found no significant difference from the mean:
 
 
 ## Simulate random walk battles, since season start
+
+TODO: Add model formulation, results and summary
+
 ![Random Walk](https://raw.githubusercontent.com/eigenemara/cr-analysis/main/images/random_walk.png?raw=true)
 
 
